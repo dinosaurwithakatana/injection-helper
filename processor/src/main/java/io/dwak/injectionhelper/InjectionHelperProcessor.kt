@@ -1,6 +1,5 @@
-package io.dwak
+package io.dwak.injectionhelper
 
-import com.google.auto.service.AutoService
 import javax.annotation.processing.AbstractProcessor
 import javax.annotation.processing.Filer
 import javax.annotation.processing.Messager
@@ -13,7 +12,6 @@ import javax.lang.model.element.TypeElement
 import javax.lang.model.util.Elements
 import javax.tools.Diagnostic
 
-@AutoService(InjectionHelperProcessor::class)
 class InjectionHelperProcessor: AbstractProcessor() {
   private lateinit var env: ProcessingEnvironment
   private val filer: Filer by lazy { env.filer }

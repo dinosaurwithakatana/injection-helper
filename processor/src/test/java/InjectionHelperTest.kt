@@ -1,7 +1,7 @@
 import com.google.testing.compile.CompilationSubject
 import com.google.testing.compile.Compiler
 import com.google.testing.compile.JavaFileObjects
-import io.dwak.InjectionHelperProcessor
+import io.dwak.injectionhelper.InjectionHelperProcessor
 import org.junit.Test
 
 class InjectionHelperTest {

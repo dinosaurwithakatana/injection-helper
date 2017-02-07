@@ -1,4 +1,4 @@
-package io.dwak
+package io.dwak.injectionhelper
 
 import com.squareup.javapoet.ClassName
 import com.squareup.javapoet.JavaFile

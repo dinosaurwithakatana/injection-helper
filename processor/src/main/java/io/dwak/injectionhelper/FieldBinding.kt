@@ -1,4 +1,4 @@
-package io.dwak
+package io.dwak.injectionhelper
 
 import javax.lang.model.element.Element
 import javax.lang.model.type.TypeMirror
