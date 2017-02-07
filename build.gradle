@@ -1,0 +1,40 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.0.5-2'
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    autoService = "com.google.auto.service:auto-service:1.0-rc2"
+
+    compileTesting = "com.google.testing.compile:compile-testing:0.10"
+
+    inject = "javax.inject:javax.inject:1"
+
+    javaPoet = "com.squareup:javapoet:1.8.0"
+
+    junit = "junit:junit:4.12"
+
+    kotlin = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    truth = "com.google.truth:truth:0.30"
+}
+
