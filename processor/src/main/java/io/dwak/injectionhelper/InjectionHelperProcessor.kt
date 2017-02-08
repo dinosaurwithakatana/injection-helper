@@ -8,6 +8,7 @@ import javax.annotation.processing.RoundEnvironment
 import javax.inject.Inject
 import javax.lang.model.SourceVersion
 import javax.lang.model.element.Element
+import javax.lang.model.element.ElementKind
 import javax.lang.model.element.TypeElement
 import javax.lang.model.util.Elements
 import javax.tools.Diagnostic
@@ -33,6 +34,7 @@ class InjectionHelperProcessor: AbstractProcessor() {
       val erasedTargetNames =mutableSetOf<String>()
       annotations.map { roundEnv.getElementsAnnotatedWith(it) }
           .flatMap { it.filter { it.hasAnnotationWithName(Inject::class.java.simpleName) } }
+          .filter { it.kind == ElementKind.FIELD }
           .forEach {
             try {
               val enclosingTypeElement = it.enclosingElement as TypeElement

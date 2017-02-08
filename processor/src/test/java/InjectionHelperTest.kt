@@ -77,4 +77,26 @@ class InjectionHelperTest {
     CompilationSubject.assertThat(compilation).generatedSourceFile("test.TestInjectionHelper")
         .hasSourceEquivalentTo(expectedOutput)
   }
+
+  @Test
+  fun skipConstructor() {
+    val inputFile
+        = JavaFileObjects.forSourceLines("test.Test",
+        "package test;",
+        "import java.lang.String;",
+        "import javax.inject.Inject;",
+        "public class Test {",
+        "",
+        "  @Inject",
+        "  public Test(String myString) {",
+        "  }",
+        "",
+        "}")
+
+    val compilation = Compiler.javac().withProcessors(InjectionHelperProcessor())
+        .withOptions("-Xlint:-processing")
+        .compile(inputFile)
+
+    CompilationSubject.assertThat(compilation).succeededWithoutWarnings()
+  }
 }
